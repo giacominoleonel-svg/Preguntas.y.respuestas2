@@ -1,0 +1,107 @@
+
+import java.util.*;
+
+ public class JuegoRioParana{
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int puntaje = 0;
+
+        System.out.println("🌊 Bienvenido al DESAFÍO del Río Paraná 🌊");
+        System.out.println("Demostrá cuánto sabés realmente sobre la contaminación de uno de los ríos más importantes de Sudamérica 🇦🇷\n");
+
+        // Preguntas más difíciles
+        String[][] preguntas = {
+            {
+                "1️⃣ ¿Cuál de los siguientes contaminantes es más frecuente en el tramo medio del Paraná debido a la actividad agroindustrial?",
+                "A) Arsénico",
+                "B) Nitratos y fosfatos",
+                "C) Mercurio",
+                "D) Plomo",
+                "B"
+            },
+            {
+                "2️⃣ ¿Qué impacto tiene la deforestación en la cuenca del Paraná sobre la calidad del agua?",
+                "A) Aumenta la oxigenación del agua",
+                "B) Disminuye la sedimentación",
+                "C) Incrementa la erosión y el arrastre de nutrientes y contaminantes",
+                "D) Reduce la contaminación orgánica",
+                "C"
+            },
+            {
+                "3️⃣ ¿Cuál es una consecuencia directa del vertido de efluentes industriales sin tratamiento en el Paraná?",
+                "A) Formación de islotes naturales",
+                "B) Eutrofización y disminución del oxígeno disuelto",
+                "C) Aumento del caudal del río",
+                "D) Reducción de las lluvias estacionales",
+                "B"
+            },
+            {
+                "4️⃣ En estudios recientes, se ha detectado la presencia de microplásticos en el Paraná. ¿Cuál es su fuente principal?",
+                "A) Residuos de la industria automotriz",
+                "B) Desgaste de neumáticos y plásticos domésticos",
+                "C) Restos de minería ilegal",
+                "D) Derrames de petróleo",
+                "B"
+            },
+            {
+                "5️⃣ ¿Qué provincia argentina ha reportado mayores niveles de contaminación en zonas urbanas del Paraná?",
+                "A) Corrientes",
+                "B) Misiones",
+                "C) Santa Fe",
+                "D) Entre Ríos",
+                "C"
+            },
+            {
+                "6️⃣ ¿Qué efecto tiene la contaminación por agroquímicos sobre la fauna acuática del Paraná?",
+                "A) Mejora la resistencia genética de los peces",
+                "B) Provoca alteraciones endocrinas y reducción de la fertilidad",
+                "C) Disminuye la biodiversidad bacteriana sin afectar a los peces",
+                "D) Aumenta la transparencia del agua",
+                "B"
+            },
+            {
+                "7️⃣ ¿Cuál de estos organismos es usado como bioindicador para evaluar la contaminación del Paraná?",
+                "A) Sabalo (Prochilodus lineatus)",
+                "B) Dorado (Salminus brasiliensis)",
+                "C) Mojarra (Astyanax spp.)",
+                "D) Caracol manzana (Pomacea canaliculata)",
+                "A"
+            }
+        };
+
+        // Mezclar las preguntas
+        List<String[]> listaPreguntas = Arrays.asList(preguntas);
+        Collections.shuffle(listaPreguntas);
+
+        // Juego
+        for (String[] p : listaPreguntas) {
+            System.out.println("\n" + p[0]);
+            System.out.println(p[1]);
+            System.out.println(p[2]);
+            System.out.println(p[3]);
+            System.out.println(p[4]);
+            System.out.print("👉 Tu respuesta (A, B, C o D): ");
+            String respuesta = sc.nextLine().trim().toUpperCase();
+
+            if (respuesta.equals(p[5])) {
+                System.out.println("✅ ¡Correcto! Estás hecho un investigador del Paraná 😎");
+                puntaje++;
+            } else {
+                System.out.println("❌ Incorrecto. La respuesta correcta era: " + p[5]);
+            }
+        }
+
+        // Resultado final
+        System.out.println("\n🎯 Puntaje final: " + puntaje + " / " + preguntas.length);
+        if (puntaje == preguntas.length) {
+            System.out.println("🔥 ¡Perfecto! Sos prácticamente un científico ambiental 💥");
+        } else if (puntaje >= preguntas.length * 0.6) {
+            System.out.println("👏 Muy bien, sabés mucho del Paraná, pero podés pulir más tus conocimientos 🌱");
+        } else {
+            System.out.println("😅 Te faltó un poco... estudiá más sobre el ecosistema del Paraná y volvé a intentarlo 💧");
+        }
+
+        sc.close();
+    }
+}
